@@ -34,7 +34,8 @@ append(Item, {MaxLength, StartIdx, List}) ->
 sublist({_MaxLength, StartIdx, _List}, Start, Len) when StartIdx-Start>Len ->
     []; % totality of sublist requested has been evicted previously
 sublist({_MaxLength, StartIdx, List}, Start, Len) when StartIdx>Start ->
+    % part of sublist requested has been evicted previously
     lists:sublist(lists:reverse(List), 1, Len-(StartIdx-Start));
 sublist({_MaxLength, StartIdx, List}, Start, Len) ->
-    lists:sublist(lists:reverse(List), Start-StartIdx, Len).
+    lists:sublist(lists:reverse(List), Start-StartIdx+1, Len).
 
