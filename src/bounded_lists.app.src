@@ -1,0 +1,14 @@
+{application, bounded_lists,
+ [
+  {description, "An Erlang bounded_lists library"},
+  {vsn, "1"},
+  {modules, [
+             bounded_lists
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
